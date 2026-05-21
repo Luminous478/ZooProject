@@ -9,7 +9,7 @@ class Program
     {
         Zoo zoo = new Zoo();
 
-        // load asved animals
+        // load saved animals from file
         LoadAnimals(zoo);
 
         int idCounter = 1;
@@ -27,7 +27,7 @@ class Program
             Console.Write("Choose: ");
             string choice = Console.ReadLine();
 
-            // SHOW ALL ANIMALS
+            // SHOW ALL ANIMLAS
             if (choice == "1")
             {
                 var animals = zoo.GetAllAnimals();
