@@ -11,8 +11,11 @@ class Animal
     public int LifeExpectancy { get; set; }
     public DateTime LastFed { get; set; }
 
-    public Animal(int id, string name, string species, DateTime birthDate,
-                  DietType diet, EnvironmentType environment, int lifeExpectancy)
+    public Animal(int id, string name, string species,
+        DateTime birthDate,
+        DietType diet,
+        EnvironmentType environment,
+        int lifeExpectancy)
     {
         Id = id;
         Name = name;
@@ -21,12 +24,13 @@ class Animal
         Diet = diet;
         Environment = environment;
         LifeExpectancy = lifeExpectancy;
+
         LastFed = DateTime.Now.AddHours(-10);
     }
 
     public virtual string GetInfo()
     {
-        return $"ID: {Id}, Namn: {Name}, Art: {Species}";
+        return $"ID: {Id}, Name: {Name}, Species: {Species}, Age: {GetAge(DateTime.Now)}";
     }
 
     public void Feed()
@@ -37,6 +41,11 @@ class Animal
     public bool NeedsFeeding(DateTime currentTime)
     {
         return (currentTime - LastFed).TotalHours > 8;
+    }
+
+    public bool IsAlive(DateTime currentDate)
+    {
+        return GetAge(currentDate) < LifeExpectancy;
     }
 
     public int GetAge(DateTime currentDate)

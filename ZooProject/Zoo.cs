@@ -10,9 +10,9 @@ class Zoo
         animals.Add(animal);
     }
 
-    public void RemoveAnimal(int id)
+    public void RemoveAnimal(Animal animal)
     {
-        animals.RemoveAll(a => a.Id == id);
+        animals.Remove(animal);
     }
 
     public List<Animal> GetAllAnimals()
@@ -22,26 +22,27 @@ class Zoo
 
     public List<Animal> SearchBySpecies(string species)
     {
-        return animals.Where(a => a.Species.ToLower() == species.ToLower()).ToList();
+        return animals
+            .Where(a => a.Species.ToLower() == species.ToLower())
+            .ToList();
     }
 
     public List<Animal> SearchByDiet(DietType diet)
     {
-        return animals.Where(a => a.Diet == diet).ToList();
+        return animals
+            .Where(a => a.Diet == diet)
+            .ToList();
     }
 
     public List<Animal> SearchByEnvironment(EnvironmentType env)
     {
-        return animals.Where(a => a.Environment == env).ToList();
+        return animals
+            .Where(a => a.Environment == env)
+            .ToList();
     }
 
     public Animal GetAnimalById(int id)
     {
         return animals.FirstOrDefault(a => a.Id == id);
-    }
-
-    internal void RemoveAnimal(Animal animal)
-    {
-        throw new NotImplementedException();
     }
 }

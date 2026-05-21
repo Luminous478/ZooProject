@@ -2,8 +2,12 @@
 
 class Mammal : Animal
 {
-    public Mammal(int id, string name, string species, DateTime birthDate,
-                  DietType diet, EnvironmentType environment, int lifeExpectancy)
+    public Mammal(int id, string name, string species,
+        DateTime birthDate,
+        DietType diet,
+        EnvironmentType environment,
+        int lifeExpectancy)
+
         : base(id, name, species, birthDate, diet, environment, lifeExpectancy)
     {
     }
